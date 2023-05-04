@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MenuManager3 {
+public class MenuManager5 {
 	public static void main(String[] args) {
 	Scanner input = new Scanner(System.in);
 	AccountManager accountManager = new AccountManager(input);
@@ -19,7 +19,7 @@ public class MenuManager3 {
 	accountManager.earning();}
 	else if (num==2) {
 	accountManager.delete();}
-	else if (num==3) {
+	else if (num==3) { 
 	accountManager.editAccountbook();}
 	else if (num==4) {
 	accountManager.viewAccountbooks();}

@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Account.Account;
+import Account.AccountKind;
 import Account.Daily;
+import Account.Food;
+import Account.Study;
 
 public class AccountManager {
 	ArrayList<Account> accounts = new ArrayList<Account>();
@@ -14,25 +17,32 @@ public class AccountManager {
 	public void earning() {
 	int kind = 0;
 	Account account;
-	while(kind != 1&&kind!=2) {
-	System.out.print("1 for Daily");
-	System.out.print("2 for Food");
-	System.out.print("Select num for Account Kind between 1 and 2: ");
+	while(kind != 1&&kind!=2&&kind!=3) {
+	System.out.println("1 for Daily ");
+	System.out.println("2 for Food ");
+	System.out.println("3 for Study ");
+	System.out.print("Select num for Account Kind between 1,2,3 : ");
 	kind = input.nextInt();
 	if(kind==1) {
-		account = new Account();
+		account = new Daily(AccountKind.DAILY);
 		account.getUserInput(input);
 		accounts.add(account);
 		break;
 	}
 	else if(kind==2) {
-		account = new Daily();
+		account = new Food(AccountKind.FOOD);
+		account.getUserInput(input);
+		accounts.add(account);
+		break;
+	}
+	else if(kind==3) {
+		account = new Study(AccountKind.STUDY);
 		account.getUserInput(input);
 		accounts.add(account);
 		break;
 	}
 	else {
-		System.out.print("Select num for Account Kind between 1 and 2: ");
+		System.out.print("Select num for Account Kind between 1,2,3: ");
 	}
 		}
 	
