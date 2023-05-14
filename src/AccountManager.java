@@ -2,13 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Account.Account;
+import Account.AccountInput;
 import Account.AccountKind;
 import Account.Daily;
 import Account.Food;
 import Account.Study;
 
 public class AccountManager {
-	ArrayList<Account> accounts = new ArrayList<Account>();
+	ArrayList<AccountInput> accounts = new ArrayList<AccountInput>();
 	Scanner input;
 	AccountManager(Scanner input){
 	this.input = input;
@@ -16,7 +17,7 @@ public class AccountManager {
 
 	public void earning() {
 	int kind = 0;
-	Account account;
+	AccountInput accountInput;
 	while(kind != 1&&kind!=2&&kind!=3) {
 	System.out.println("1 for Daily ");
 	System.out.println("2 for Food ");
@@ -24,21 +25,21 @@ public class AccountManager {
 	System.out.print("Select num for Account Kind between 1,2,3 : ");
 	kind = input.nextInt();
 	if(kind==1) {
-		account = new Daily(AccountKind.DAILY);
-		account.getUserInput(input);
-		accounts.add(account);
+		accountInput = new Daily(AccountKind.DAILY);
+		accountInput.getUserInput(input);
+		accounts.add(accountInput);
 		break;
 	}
 	else if(kind==2) {
-		account = new Food(AccountKind.FOOD);
-		account.getUserInput(input);
-		accounts.add(account);
+		accountInput = new Food(AccountKind.FOOD);
+		accountInput.getUserInput(input);
+		accounts.add(accountInput);
 		break;
 	}
 	else if(kind==3) {
-		account = new Study(AccountKind.STUDY);
-		account.getUserInput(input);
-		accounts.add(account);
+		accountInput = new Study(AccountKind.STUDY);
+		accountInput.getUserInput(input);
+		accounts.add(accountInput);
 		break;
 	}
 	else {
@@ -72,8 +73,8 @@ public class AccountManager {
 	System.out.print("번호 : ");
 	int number = input.nextInt();
 	for(int i=0; i<accounts.size(); i++) {
-		Account account = accounts.get(i);
-	if(account.getNumber()==number) {
+		AccountInput accountInput = accounts.get(i);
+	if(accountInput.getNumber()==number) {
 		int num = -1;
 		while(num != 4) {
 		System.out.println("** Accountbook Info Edit Menu **");
@@ -86,17 +87,17 @@ public class AccountManager {
 		if (num==1) {
 			System.out.print("수익: ");
 			int amount = input.nextInt();
-			account.setAmount(amount);
+			accountInput.setAmount(amount);
 		}
 		else if (num==2) {
 			System.out.print("수익 내용: ");
 			String content = input.next();
-			account.setContent(content);
+			accountInput.setContent(content);
 		}
 		else if (num==3) {
 			System.out.print("날짜: ");
 			String date = input.next();
-			account.setDate(date);
+			accountInput.setDate(date);
 		}
 		else {
 		continue;

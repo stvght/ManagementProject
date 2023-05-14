@@ -2,7 +2,7 @@ package Account;
 
 import java.util.Scanner;
 
-public class Daily extends Account {
+public class Daily extends Account implements AccountInput{
 	public Daily(AccountKind kind) {
 		super(kind);
 	}
