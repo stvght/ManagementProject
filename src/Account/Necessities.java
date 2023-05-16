@@ -4,14 +4,17 @@ import java.util.Scanner;
 
 import exception.AmountFormatException;
 
-public class Study extends Account{
-	public Study(AccountKind kind) {
+public abstract class Necessities extends Account {
+
+	public Necessities(AccountKind kind) {
 		super(kind);
 	}
-	public void getUserInput(Scanner input) { // 오버라이딩
-		setAccountNumber(input);
-		setAmountwithYN(input);
-		setAccountDate(input);
+
+	public abstract void getUserInput(Scanner input);
+
+	public void printInfo() {
+		String skind = getKindString();
+		System.out.println("kind: " + skind + " number : "+number +" amount : "+amount +" "+ " content : "+content+" " + " date : "+date);
 	}
 
 	public void setAmountwithYN(Scanner input) {
@@ -35,14 +38,7 @@ public class Study extends Account{
 			}
 			catch(AmountFormatException e) {
 				System.out.println("Incorrect Amount Format. put the amount that contains '원'");
-
 			}
 		}
 	}
-
-	public void printInfo() {
-		String skind = getKindString();
-		System.out.println("kind: " + skind + " number : "+number +" amount : "+amount +" "+ " content : "+content+" " + " date : "+date);
-	}
 }
-
