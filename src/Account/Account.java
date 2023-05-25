@@ -1,10 +1,16 @@
 package Account;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.AmountFormatException;
 
-public abstract class Account implements AccountInput{
+public abstract class Account implements AccountInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6373321024653451273L;
+
 	protected AccountKind kind = AccountKind.DAILY;
 	protected int number;
 	protected String amount;

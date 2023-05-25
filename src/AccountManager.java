@@ -1,8 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import Account.Account;
 import Account.AccountInput;
 import Account.AccountKind;
 import Account.Daily;
@@ -10,9 +10,15 @@ import Account.Food;
 import Account.Study;
 import Account.Wear;
 
-public class AccountManager {
+public class AccountManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3315605092441589012L;
+
+	
 	ArrayList<AccountInput> accounts = new ArrayList<AccountInput>();
-	Scanner input;
+	transient Scanner input;
 	AccountManager(Scanner input){
 		this.input = input;
 	}
