@@ -10,10 +10,16 @@ public interface AccountInput {
 
 	public void setNumber(int number);
 
+	public String getAmount();
+	
 	public void setAmount(String amount) throws AmountFormatException;
 
+	public String getContent();
+	
 	public void setContent(String content);
 
+	public String getDate();
+	
 	public void setDate(String date);
 
 	public void getUserInput(Scanner input);
