@@ -23,6 +23,15 @@ public class AccountManager implements Serializable{
 	AccountManager(Scanner input){
 		this.input = input;
 	}
+	public void earning(String number, String amount, String content, String Date) {
+		AccountInput accountInput = new Daily(AccountKind.DAILY);
+		accountInput.getUserInput(input);
+		accounts.add(accountInput);
+	}
+	
+	public void earning(AccountInput accountInput) {
+		accounts.add(accountInput);
+	}
 
 	public void earning() {
 		int kind = 0;
